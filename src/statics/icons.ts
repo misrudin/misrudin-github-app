@@ -1,0 +1,1 @@
+export const siteLogo = '/site-logo.png'

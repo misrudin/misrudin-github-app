@@ -1,0 +1,31 @@
+import {FC} from "react";
+import {NavbarContainer} from "@styles/Containers";
+import {Col, NavbarBrand, NavbarLogo, NavbarSearch, NavbarTitle, Row, SearchIcon} from "./styles";
+import {siteLogo} from "@statics/icons";
+import {InputStyled} from "@styles/Input";
+
+interface NavbarProps {
+}
+
+const Navbar: FC<NavbarProps> = () => {
+    return (
+        <NavbarContainer>
+            <Row>
+                <Col>
+                    <NavbarBrand>
+                        <NavbarLogo src={siteLogo}/>
+                        <NavbarTitle>Github Repository</NavbarTitle>
+                    </NavbarBrand>
+                </Col>
+                <Col paceEnd>
+                    <NavbarSearch>
+                        <SearchIcon/>
+                        <InputStyled placeholder="Masukan username github"/>
+                    </NavbarSearch>
+                </Col>
+            </Row>
+        </NavbarContainer>
+    )
+}
+
+export default Navbar
