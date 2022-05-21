@@ -11,8 +11,8 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
-      "@interface/*": [
-        "src/interface/*"
+      "@types/*": [
+        "src/types/*"
       ],
       "@redux/*": [
         "src/redux/*"
