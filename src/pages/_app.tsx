@@ -5,6 +5,7 @@ import theme from "@styles/theme";
 import GlobalStyle from "@styles/Global";
 import {wrapper} from "@redux/store";
 import {Footer, Navbar} from "@components/organisms";
+import {Spacer} from "@components/atoms";
 
 interface CustomAppProps extends AppProps {}
 
@@ -12,7 +13,9 @@ const App: React.FC<CustomAppProps> = ({Component, pageProps}) => {
     return (
         <ThemeProvider theme={theme}>
             <Navbar/>
+            <Spacer space={20} />
             <Component {...pageProps} />
+            <Spacer space={20} />
             <Footer/>
             <GlobalStyle/>
         </ThemeProvider>
