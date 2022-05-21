@@ -1,12 +1,12 @@
 import {configureStore, ThunkAction} from "@reduxjs/toolkit";
-import {profileReducer, repositoryReducer} from "./slices";
+import {userReducer, repositoryReducer} from "./slices";
 import {Action} from 'redux';
 import {createWrapper} from "next-redux-wrapper";
 import logger from 'redux-logger'
 
 const makeStore = () => configureStore({
     reducer: {
-        profile: profileReducer,
+        user: userReducer,
         repository: repositoryReducer
     },
     devTools: true,

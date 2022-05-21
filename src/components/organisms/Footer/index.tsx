@@ -1,14 +1,15 @@
-import {ContentContainer, FooterContainer } from "@styles/Containers";
+import {ContentContainer, FooterContainer} from "@styles/Containers";
 import {FC} from "react";
 import {FooterText} from "./styles";
 
-interface FooterProps {}
+interface FooterProps {
+}
 
-const Footer: FC<FooterProps> =()=> {
+const Footer: FC<FooterProps> = () => {
     return (
         <FooterContainer>
             <ContentContainer>
-                <FooterText>Created by Misrudin • for</FooterText>
+                <FooterText>Created by Misrudin • For Complete Assessment Test Submission MyTEnS</FooterText>
             </ContentContainer>
         </FooterContainer>
     )

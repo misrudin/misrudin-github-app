@@ -1,4 +1,4 @@
-import profileReducer from './profile'
+import userReducer from './user'
 import repositoryReducer from './repository'
 
-export {profileReducer, repositoryReducer}
+export {userReducer, repositoryReducer}

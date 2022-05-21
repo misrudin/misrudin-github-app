@@ -14,7 +14,7 @@ const HomeTemplate: FC<Props> = () => {
     return (
         <Repositories>
             {
-                repositories && repositories.map((repo: IRepository, index: number) => {
+                repositories && repositories?.map((repo: IRepository, index: number) => {
                     return (
                         <Repository repo={repo} key={index.toString()}/>
                     )

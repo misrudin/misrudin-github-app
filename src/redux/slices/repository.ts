@@ -5,8 +5,8 @@ import {IRepository} from "@interface/repository";
 import {HYDRATE} from "next-redux-wrapper";
 import {AppState} from "@redux/store";
 
-export const getRepositories = createAsyncThunk("repository/getRepositories", async () => {
-    const response = await apiGet({url: `https://api.github.com/users/misrudin/repos`}) as ResponseApi<IRepository[]>
+export const getRepositories = createAsyncThunk("repository/getRepositories", async (username: string) => {
+    const response = await apiGet({url: `https://api.github.com/users/${username}/repos`}) as ResponseApi<IRepository[]>
     return response.data
 })
 
@@ -21,9 +21,6 @@ export const RepositorySlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(HYDRATE, (state, action: any) => {
-            state.repositories = action.payload
-        })
         builder.addCase(getRepositories.fulfilled, (state, {payload}) => {
             state.repositories = payload
         })

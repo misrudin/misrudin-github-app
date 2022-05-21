@@ -6,13 +6,15 @@ import {ContentContainer} from "@styles/Containers";
 import {getRepositories} from "@redux/slices/repository";
 import {useDispatch} from "react-redux";
 
-const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({resolvedUrl}) => {
+const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ghUsername}) => {
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-        // @ts-ignore
-        dispatch(getRepositories())
-    },[])
+    useEffect(() => {
+        if(ghUsername) {
+            // @ts-ignore
+            dispatch(getRepositories(ghUsername))
+        }
+    }, [dispatch, ghUsername])
 
     return (
         <ContentContainer>
@@ -21,10 +23,10 @@ const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({r
     )
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async ({resolvedUrl}) => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async ({query}) => {
     return {
         props: {
-            resolvedUrl: resolvedUrl
+            ghUsername: query?.username ?? null
         }
     }
 })
