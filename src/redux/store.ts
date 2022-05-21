@@ -1,13 +1,16 @@
 import {configureStore, ThunkAction} from "@reduxjs/toolkit";
-import {profileReducer} from "./slices";
+import {profileReducer, repositoryReducer} from "./slices";
 import {Action} from 'redux';
 import {createWrapper} from "next-redux-wrapper";
+import logger from 'redux-logger'
 
 const makeStore = () => configureStore({
     reducer: {
-        profile: profileReducer
+        profile: profileReducer,
+        repository: repositoryReducer
     },
-    devTools: true
+    devTools: true,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 })
 
 export type AppStore = ReturnType<typeof makeStore>

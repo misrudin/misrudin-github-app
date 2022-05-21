@@ -1,9 +1,5 @@
 import styled from "styled-components";
-
-export const PageContainer = styled.main`
-  background-color: white;
-  min-height: 100vh;
-`
+import {device} from "@statics/constant";
 
 export const NavbarContainer = styled.nav`
   padding: 0 40px;
@@ -19,7 +15,29 @@ export const NavbarContainer = styled.nav`
 
 export const ContentContainer = styled.div`
   padding: 10px 40px;
-  background-color: blue;
+  margin: auto;
+  width: 100%;
+
+  @media ${device.xs} {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  @media ${device.sm} {
+    max-width: 540px;
+  }
+
+  @media ${device.md} {
+    max-width: 720px;
+  }
+
+  @media ${device.lg} {
+    max-width: 960px;
+  }
+
+  @media ${device.xl} {
+    max-width: 1140px;
+  }
 `
 
 export const FooterContainer = styled.footer`

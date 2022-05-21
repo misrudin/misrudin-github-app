@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle<Props>`
     font-size: calc(14px + .5vw);
     font-family: 'Roboto', 'Nunito', sans-serif;
     line-height: 1.7;
-    background: ${({theme}) => theme.colors.white};
+    background-color: ${({theme}) => theme.colors.white};
     color: ${({theme}) => theme.colors.medium};
   }
 

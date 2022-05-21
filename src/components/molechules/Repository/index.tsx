@@ -1,9 +1,12 @@
 import {FC} from "react";
 import {RepositoryContainer} from "./styles";
+import {IRepository} from "@interface/repository";
 
-interface Props {}
+interface Props {
+    repo: IRepository
+}
 
-const Repository: FC<Props> = () => {
+const Repository: FC<Props> = ({repo}) => {
     return (
         <RepositoryContainer>
 

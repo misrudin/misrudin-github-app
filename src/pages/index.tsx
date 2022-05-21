@@ -1,22 +1,27 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 import {InferGetServerSidePropsType} from "next";
 import {wrapper} from "@redux/store";
-import {selectProfile, setProfileData} from "@redux/slices/profile";
-import {useSelector} from "react-redux";
 import {HomeTemplate} from "@components/templates";
+import {ContentContainer} from "@styles/Containers";
+import {getRepositories} from "@redux/slices/repository";
+import {useDispatch} from "react-redux";
 
 const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({resolvedUrl}) => {
-    const {name} = useSelector(selectProfile)
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        // @ts-ignore
+        dispatch(getRepositories())
+    },[])
 
     return (
-        <HomeTemplate/>
+        <ContentContainer>
+            <HomeTemplate/>
+        </ContentContainer>
     )
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async ({resolvedUrl}) => {
-
-    store.dispatch(setProfileData("Misrudin in server"))
-
     return {
         props: {
             resolvedUrl: resolvedUrl
