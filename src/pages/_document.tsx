@@ -1,4 +1,4 @@
-import Document, {DocumentContext, DocumentInitialProps} from 'next/document';
+import Document, {DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript} from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -28,5 +28,24 @@ export default class MyDocument extends Document {
         } finally {
             sheet.seal();
         }
+    }
+
+    render() {
+        return (
+            <Html lang="en">
+                <Head>
+                    <title>Github Repository - by Misrudin</title>
+                    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                    <link
+                        href={`${process.env.NEXT_PUBLIC_FONT_URL}`}
+                        rel="stylesheet"/>
+                </Head>
+                <body>
+                <Main/>
+                <NextScript/>
+                </body>
+            </Html>
+        )
     }
 }
