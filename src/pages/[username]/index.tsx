@@ -7,7 +7,6 @@ import {getRepositories} from "@redux/slices/repository";
 import {useDispatch, useSelector} from "react-redux";
 import {getProfile, selectUser} from "@redux/slices/user";
 import {Seo} from "@components/organisms";
-import {capitalizeFirstLetter} from "@utils/string";
 
 const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ghUsername}) => {
     const dispatch = useDispatch()
@@ -25,7 +24,7 @@ const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({g
     return (
         <>
             <Seo
-                title={profile ? `${capitalizeFirstLetter(profile.name)}'s Repositories` : `${capitalizeFirstLetter(ghUsername)}'s Repositories`}/>
+                title={profile ? `${profile.name}'s Repositories` : `${ghUsername}'s Repositories`}/>
             <ContentContainer>
                 <ReposTemplate/>
             </ContentContainer>
