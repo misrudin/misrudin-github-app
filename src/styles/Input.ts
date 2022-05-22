@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "@statics/constant";
 
 export const InputStyled = styled.input`
   font-size: 14px;
@@ -17,5 +18,9 @@ export const InputStyled = styled.input`
   &::placeholder {
     color: ${({theme}) => theme.colors.placeholder};
     font-weight: 400;
+  }
+
+  @media ${device.xs} {
+    font-size: 16px;
   }
 `

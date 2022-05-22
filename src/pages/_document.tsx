@@ -35,6 +35,13 @@ export default class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     <title>{process.env.NEXT_PUBLIC_SITE_NAME} - by Misrudin</title>
+                    <meta name="robots" content="index, follow"/>
+                    <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
+                    <link rel="shortcut icon" href="/favicon.ico"/>
+                    <meta
+                        name='viewport'
+                        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+                    />
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link
