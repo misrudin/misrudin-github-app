@@ -24,8 +24,7 @@ export const RepositorySlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getRepositories.pending, (state, {payload}) => {
-            state.repositories = payload
+        builder.addCase(getRepositories.pending, (state, action) => {
             state.is_loading = true
             state.is_error = false
         })

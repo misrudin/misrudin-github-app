@@ -20,8 +20,20 @@ export const UserSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
+        builder.addCase(getProfile.pending, (state, action) => {
+            state.is_loading = true
+            state.is_error = false
+        })
         builder.addCase(getProfile.fulfilled, (state, {payload}) => {
             state.profile = payload
+            state.is_loading = false
+            if (payload && payload.login) {
+                state.msg = "Berhasil mendapatkan data profile."
+                state.is_error = false
+            } else {
+                state.msg = "Profile tidak ditemukan."
+                state.is_error = true
+            }
         })
         builder.addCase(getProfile.rejected, (state, action: any) => {
             if (action.payload) {

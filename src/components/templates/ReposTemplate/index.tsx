@@ -20,7 +20,9 @@ const ReposTemplate: FC<Props> = () => {
             {profile && <Profile profile={profile}/>}
             {profile && <Spacer space={20}/>}
 
-            {profile ? <ReposTitle>{profile.name}'s Repositories</ReposTitle> : <ReposTitle>Repositories</ReposTitle>}
+            {profile ? <ReposTitle>{profile.name}'s Repositories</ReposTitle> :
+                repositories ?
+                <ReposTitle>Repositories</ReposTitle> : null}
 
             <Spacer space={10}/>
             <Repositories>
