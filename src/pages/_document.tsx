@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    <title>Github Repository - by Misrudin</title>
+                    <title>{process.env.NEXT_PUBLIC_SITE_NAME} - by Misrudin</title>
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
                     <link

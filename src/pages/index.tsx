@@ -3,13 +3,18 @@ import {InferGetServerSidePropsType} from "next";
 import {wrapper} from "@redux/store";
 import {HomeTemplate} from "@components/templates";
 import {ContentContainer} from "@styles/Containers";
+import {capitalizeFirstLetter} from "@utils/string";
+import {Seo} from "@components/organisms";
 
 const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = () => {
 
     return (
-        <ContentContainer>
-            <HomeTemplate/>
-        </ContentContainer>
+        <>
+            <Seo title="Home - Find Your Github Repository"/>
+            <ContentContainer>
+                <HomeTemplate/>
+            </ContentContainer>
+        </>
     )
 }
 
