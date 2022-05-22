@@ -7,15 +7,18 @@ import {wrapper} from "@redux/store";
 import {Footer, Navbar} from "@components/organisms";
 import {Spacer} from "@components/atoms";
 
-interface CustomAppProps extends AppProps {}
+interface CustomAppProps extends AppProps {
+}
 
 const App: React.FC<CustomAppProps> = ({Component, pageProps}) => {
+    const {ghUsername} = pageProps
+    console.log(ghUsername)
     return (
         <ThemeProvider theme={theme}>
-            <Navbar/>
-            <Spacer space={20} />
+            <Navbar username={ghUsername ?? ''}/>
+            <Spacer space={20}/>
             <Component {...pageProps} />
-            <Spacer space={20} />
+            <Spacer space={20}/>
             <Footer/>
             <GlobalStyle/>
         </ThemeProvider>

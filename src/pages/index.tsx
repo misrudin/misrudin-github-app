@@ -1,20 +1,10 @@
-import {FC, useEffect} from "react";
+import {FC} from "react";
 import {InferGetServerSidePropsType} from "next";
 import {wrapper} from "@redux/store";
 import {HomeTemplate} from "@components/templates";
 import {ContentContainer} from "@styles/Containers";
-import {getRepositories} from "@redux/slices/repository";
-import {useDispatch} from "react-redux";
 
-const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ghUsername}) => {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        if(ghUsername) {
-            // @ts-ignore
-            dispatch(getRepositories(ghUsername))
-        }
-    }, [dispatch, ghUsername])
+const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = () => {
 
     return (
         <ContentContainer>
@@ -23,11 +13,10 @@ const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({g
     )
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async ({query}) => {
-    const username = query?.username as string
+export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
     return {
         props: {
-            ghUsername: username ?? null
+            ghUsername: ''
         }
     }
 })

@@ -13,16 +13,16 @@ const GlobalStyle = createGlobalStyle<Props>`
   }
 
   body {
-    font-size: calc(14px + .5vw);
+    font-size: 14px;
     font-family: 'Roboto', 'Nunito', sans-serif;
     line-height: 1.7;
-    background-color: ${({theme}) => theme.colors.white};
+    background-color: ${({theme}) => theme.colors.background};
     color: ${({theme}) => theme.colors.medium};
   }
 
   a {
     text-decoration: none;
-    color: ${({theme}) => theme.colors.dark};
+    color: ${({theme}) => theme.colors.white};
   }
 
   ul {

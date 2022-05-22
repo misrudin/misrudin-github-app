@@ -1,5 +1,4 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {HYDRATE} from "next-redux-wrapper";
 import {AppState} from "@redux/store";
 import {InitialState, ResponseApi} from "@interface/root";
 import {IUser} from "@interface/user";
@@ -34,6 +33,5 @@ export const UserSlice = createSlice({
     }
 })
 
-// export const {setProfileData} = UserSlice.actions
 export const selectUser = ((state: AppState) => state.user)
 export default UserSlice.reducer

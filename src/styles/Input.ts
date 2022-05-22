@@ -6,7 +6,7 @@ export const InputStyled = styled.input`
   border: 1px solid ${({theme}) => theme.colors.light};
   outline: none;
   padding: 10px;
-  color: ${({theme}) => theme.colors.medium};
+  color: ${({theme}) => theme.colors.text};
   font-family: ${({theme}) => theme.fonts.secondary};
   font-weight: 400;
 

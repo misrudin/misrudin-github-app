@@ -1,26 +1,32 @@
 import {FC} from "react";
-import {Repositories} from "./styles";
-import {Repository} from "@components/molechules";
-import {useSelector} from "react-redux";
-import {selectRepositories} from "@redux/slices/repository";
-import {IRepository} from "@interface/repository";
+import {
+    ContainerGithubLogo,
+    GithubLogo,
+    Home,
+    HomeText,
+    MainContainerHome,
+    HomeTitle
+} from "@components/templates/HomeTemplate/styles";
+import {githubLogo} from "@statics/icons";
+import {Spacer} from "@components/atoms";
 
 interface Props {
 }
 
 const HomeTemplate: FC<Props> = () => {
-    const {repositories} = useSelector(selectRepositories)
 
     return (
-        <Repositories>
-            {
-                repositories && repositories?.map((repo: IRepository, index: number) => {
-                    return (
-                        <Repository repo={repo} key={index.toString()}/>
-                    )
-                })
-            }
-        </Repositories>
+        <Home>
+            <MainContainerHome>
+                <ContainerGithubLogo>
+                    <GithubLogo src={githubLogo} alt="Github"/>
+                </ContainerGithubLogo>
+                <Spacer space={40}/>
+                <HomeTitle>Selamat datang 🥳</HomeTitle>
+                <Spacer space={10}/>
+                <HomeText>Silahkan masukan username github anda pada kolom pencarian di atas</HomeText>
+            </MainContainerHome>
+        </Home>
     )
 }
 

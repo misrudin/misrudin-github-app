@@ -3,7 +3,8 @@ export interface ResponseApi<Type> {
 }
 
 export interface InitialState {
-    status?: string,
+    is_loading?: boolean,
+    is_error?: boolean,
     code?: number,
     msg?: string
 }
