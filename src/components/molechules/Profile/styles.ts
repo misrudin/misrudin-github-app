@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {FaMapMarkerAlt} from "react-icons/fa";
 import {BiBuildings} from "react-icons/bi";
 import CountUp from 'react-countup';
+import {device} from "@statics/constant";
 
 export const ProfileContainer = styled.div`
   padding: 14px;
@@ -10,6 +11,19 @@ export const ProfileContainer = styled.div`
   border: 1px solid ${({theme}) => theme.colors.border};
   display: grid;
   grid-template-columns: 350px 1fr;
+  gap: 20px;
+
+  @media ${device.xs} {
+    grid-template-columns: 1fr;
+  }
+
+  @media ${device.sm} {
+    grid-template-columns: 1fr;
+  }
+
+  @media ${device.lg} {
+    grid-template-columns: 350px 1fr;
+  }
 `
 
 export const Col = styled.div`

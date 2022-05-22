@@ -39,7 +39,7 @@ const Profile: FC<Props> = ({profile}) => {
             <Row>
                 <RowItem>
                     <RowValue end={profile.public_repos} />
-                    <RowTitle>Public Repository</RowTitle>
+                    <RowTitle>Repository</RowTitle>
                 </RowItem>
                 <RowItem>
                     <RowValue end={profile.followers} />
