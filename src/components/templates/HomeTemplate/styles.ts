@@ -48,6 +48,7 @@ export const HomeTitle = styled.h2`
   color: ${({theme}) => theme.colors.white};
   font-family: ${({theme}) => theme.fonts.secondary};
   animation: ${fadeIn} 1s;
+  text-align: center;
 `
 
 export const HomeText = styled.p`
@@ -56,4 +57,5 @@ export const HomeText = styled.p`
   font-weight: 400;
   font-family: ${({theme}) => theme.fonts.secondary};
   animation: ${fadeIn} 1s;
+  text-align: center;
 `
