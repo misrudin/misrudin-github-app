@@ -12,7 +12,6 @@ interface CustomAppProps extends AppProps {
 
 const App: React.FC<CustomAppProps> = ({Component, pageProps}) => {
     const {ghUsername} = pageProps
-    console.log(ghUsername)
     return (
         <ThemeProvider theme={theme}>
             <Navbar username={ghUsername ?? ''}/>

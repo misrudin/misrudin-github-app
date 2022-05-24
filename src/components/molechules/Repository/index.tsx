@@ -20,27 +20,27 @@ import {Spacer} from "@components/atoms";
 import {dateFormat} from "@utils/dateFormat";
 
 interface Props {
-    repo: IRepository
+    repo?: IRepository
 }
 
 const Repository: FC<Props> = ({repo}) => {
     return (
-        <RepositoryContainer href={repo.clone_url} target="_blank" rel="noreferrer">
+        <RepositoryContainer href={repo?.clone_url} target="_blank" rel="noreferrer">
             <RepoHead>
-                <RepoName>{repo.name}</RepoName>
-                <RepoType>{repo.visibility}</RepoType>
-                <RepoDate>{dateFormat(repo.created_at)}</RepoDate>
+                <RepoName>{repo?.name}</RepoName>
+                <RepoType>{repo?.visibility}</RepoType>
+                <RepoDate>{dateFormat(repo?.created_at)}</RepoDate>
             </RepoHead>
             <Spacer space={10}/>
-            <RepoDescription>{repo.description ?? '-'}</RepoDescription>
+            <RepoDescription>{repo?.description ?? '-'}</RepoDescription>
             {
-                repo.topics.length !== 0 && <Spacer space={8}/>
+                repo?.topics?.length !== 0 && <Spacer space={8}/>
             }
             {
-                repo.topics.length !== 0 &&
+                repo?.topics?.length !== 0 &&
                 <RepoTopics>
                     {
-                        repo.topics.map((topic, index) => {
+                        repo?.topics?.map((topic, index) => {
                             return <Topic key={index}>{topic}</Topic>
                         })
                     }
@@ -52,18 +52,18 @@ const Repository: FC<Props> = ({repo}) => {
                     <IconBg>
                         <IconCode/>
                     </IconBg>
-                    <FooterValue>{repo.language ?? '-'}</FooterValue>
+                    <FooterValue>{repo?.language ?? '-'}</FooterValue>
                 </FooterItem>
                 <FooterItem>
                     <IconStar/>
-                    <FooterValue>{repo.stargazers_count ?? '-'}</FooterValue>
+                    <FooterValue>{repo?.stargazers_count ?? '-'}</FooterValue>
                 </FooterItem>
                 <FooterItem>
                     <IconFork/>
-                    <FooterValue>{repo.forks_count ?? '-'}</FooterValue>
+                    <FooterValue>{repo?.forks_count ?? '-'}</FooterValue>
                 </FooterItem>
                 <FooterItem>
-                    <FooterValue>Updated on {dateFormat(repo.updated_at)}</FooterValue>
+                    <FooterValue>Updated on {dateFormat(repo?.updated_at)}</FooterValue>
                 </FooterItem>
             </RepoFooter>
         </RepositoryContainer>
